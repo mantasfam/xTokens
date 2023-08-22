@@ -56,8 +56,7 @@ jobs:
       - name: "Create env file"
         run: |
           touch .env
-          echo MAINNET_RPC="${{ secrets.MAINNET_RPC }}" >> .env
-          echo RINKEBY_RPC="${{ secrets.RINKEBY_RPC }}" >> .env
+          echo GOERLI_RPC="${{ secrets.GOERLI_RPC }}" >> .env
           cat .env
 
       - name: Run tests
@@ -85,15 +84,12 @@ jobs:
 
       - name: Run tests
         run: yarn test:unit
-
   # coverage:
   #   name: Run Coverage Tests
   #   runs-on: ubuntu-latest
-
   #   strategy:
   #     matrix:
   #       node-version: [16.x]
-
   #   steps:
   #     - uses: actions/checkout@v3
   #     - name: Use Node.js
